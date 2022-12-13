@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="../Assets/Css/Login.css">
         <link rel="stylesheet" href="../plugins/sweetalert2/sweetalert2.min.css">        
         
-        <link rel="stylesheet" type="text/css" href="fuentes/iconic/css/material-design-iconic-font.min.css">
+        <link rel="stylesheet" type="text/css" href="../fuentes/iconic/css/material-design-iconic-font.min.css">
         
     </head>
     
@@ -44,8 +44,8 @@
         
         
      <script src="../jquery/jquery-3.3.1.min.js"></script>    
-     <script src="../Assets/Js/bootstrap/js/bootstrap.min.js"></script>    
-     <script src="../Assets/Js/bootstrap//popper/popper.min.js"></script>    
+     <script src="../Assets/bootstrap/js/bootstrap.min.js"></script>    
+     <script src="../Assets/bootstrap//popper/popper.min.js"></script>    
         
      <script src="../plugins/sweetalert2/sweetalert2.all.min.js"></script>    
      <script src="../Assets/Js/Login.js"></script>    
