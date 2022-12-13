@@ -11,7 +11,7 @@ $('#formLogin').submit(function(e){
        return false; 
      }else{
          $.ajax({
-            url:"Database/login.php",
+            url:"../Database/login.php",
             type:"POST",
             datatype: "json",
             data: {usuario:usuario, password:password}, 
@@ -30,7 +30,7 @@ $('#formLogin').submit(function(e){
                     }).then((result) => {
                         if(result.value){
                             //window.location.href = "vistas/pag_inicio.php";
-                            window.location.href = "dashboard/index.php";
+                            window.location.href = "../Pages/dashboard.php";
                         }
                     }) 
                 }
