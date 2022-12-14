@@ -13,19 +13,6 @@ CREATE TABLE `contabilidad` (
   `precio` varchar(50) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
-CREATE TABLE `factura` (
-  `idFactura` int(11) NOT NULL,
-  `fecha` date COLLATE utf8_spanish_ci NOT NULL,
-  `fechaVencimiento` date COLLATE utf8_spanish_ci NOT NULL,
-  `cliente` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
-  `cantidad` int(11) COLLATE utf8_spanish_ci NOT NULL,
-  `descripcion` varchar(50) COLLATE utf8_spanish_ci NOT NULL, 
-  `precioUnitario` decimal(10,2) COLLATE utf8_spanish_ci NOT NULL, 
-  `importe` decimal(10,2) COLLATE utf8_spanish_ci NOT NULL,
-  `total` decimal(10,2) COLLATE utf8_spanish_ci NOT NULL,
-  `fk_cliente` int(11) COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
 CREATE TABLE `cliente` (
   `idCliente` int(11) NOT NULL,  
   `cedula` int(11) NOT NULL,
@@ -35,6 +22,38 @@ CREATE TABLE `cliente` (
   `direccion` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `correo` varchar(20) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+CREATE TABLE `invoice_order` (
+  `order_id` int(11) NOT NULL,
+  `order_date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `order_receiver_name` varchar(250) NOT NULL,
+  `order_receiver_address` text NOT NULL,
+  `order_total` decimal(10,2) NOT NULL,
+  `note` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+ALTER TABLE `invoice_order`
+  ADD PRIMARY KEY (`order_id`);
+  
+ALTER TABLE `invoice_order`
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+CREATE TABLE `invoice_order_item` (
+  `order_item_id` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL,
+  `item_code` varchar(250) NOT NULL,
+  `item_name` varchar(250) NOT NULL,
+  `order_item_quantity` decimal(10,2) NOT NULL,
+  `order_item_price` decimal(10,2) NOT NULL,
+  `order_item_final_amount` decimal(10,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+ALTER TABLE `invoice_order_item`
+  ADD PRIMARY KEY (`order_item_id`);
+
+ALTER TABLE `invoice_order_item`
+  MODIFY `order_item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
 
 INSERT INTO `usuario` (`id`, `usuario`, `password`) VALUES
 (1, 'admin', 'administrador2022');
@@ -59,9 +78,3 @@ ALTER TABLE `cliente`
 ALTER TABLE `cliente`
   MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
-
-ALTER TABLE `factura`
-  ADD PRIMARY KEY (`idFactura`),ADD FOREIGN KEY (fk_cliente) REFERENCES cliente(idCliente);
-
-ALTER TABLE `factura`
-  MODIFY `idFactura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;

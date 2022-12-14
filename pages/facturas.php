@@ -28,15 +28,13 @@
                     <table id="tablaFactura" class="table table-striped table-bordered table-condensed" style="width:100%">
                         <thead class="text-center">
                             <tr>
-                                <th>Id</th>
+                                <th># Factura</th>
                                 <th>Fecha</th>
-                                <th>Fecha vencimiento</th>
-                                <th>cliente</th>
-                                <th>cantidad</th>
-                                <th>descripcion</th>
-                                <th>Precio unitario</th>
-                                <th>Total</th>
-                                <th>Acciones</th>
+                                <th>Cliente</th>
+                                <th>Total Facturado</th>
+                                <th>Imprimir</th>
+                                <th>Editar</th>
+                                <th>Eliminar</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -46,12 +44,11 @@
                                 <tr>
                                     <td><?php echo $dat['idFactura'] ?></td>
                                     <td><?php echo $dat['fecha'] ?></td>
-                                    <td><?php echo $dat['fechaVencimiento'] ?></td>
                                     <td><?php echo $dat['cliente'] ?></td>
-                                    <td><?php echo $dat['cantidad'] ?></td>
-                                    <td><?php echo $dat['descripcion'] ?></td>
-                                    <td><?php echo $dat['precioUnitario'] ?></td>
                                     <td><?php echo $dat['total'] ?></td>
+                                    <td><?php echo $dat['imprimir'] ?></td>
+                                    <td><?php echo $dat['editar'] ?></td>
+                                    <td><?php echo $dat['eliminar'] ?></td>
                                     <td></td>
                                 </tr>
                             <?php

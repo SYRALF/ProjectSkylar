@@ -27,7 +27,7 @@ $(document).ready(function () {
   });
 
   $("#btnNuevo").click(function () {
-
+    
     id = null;
     opcion = 1; //alta
   });
@@ -61,50 +61,4 @@ $(document).ready(function () {
     location.reload();
   });
 
-  $("#formFactura").submit(function (e) {
-    e.preventDefault();
-    cedula = $.trim($("#cedula").val());
-    nombre = $.trim($("#nombre").val());
-    apellido = $.trim($("#apellido").val());
-    telefono = $.trim($("#telefono").val());
-    direccion = $.trim($("#direccion").val());
-    correo = $.trim($("#correo").val());
-    $.ajax({
-      url: "../Database/crudFactura.php",
-      type: "POST",
-      dataType: "json",
-      data: {
-        cedula: cedula,
-        nombre: nombre,
-        apellido: apellido,
-        telefono: telefono,
-        direccion: direccion,
-        correo: correo,
-        id: id,
-        opcion: opcion,
-      },
-      success: function (data) {
-        console.log(data);
-        id = data[0].id;
-        cedula = data[0].cedula;
-        nombre = data[0].nombre;
-        apellido = data[0].apellido;
-        telefono = data[0].telefono;
-        direccion = data[0].direccion;
-        correo = data[0].correo;
-        if (opcion == 1) {
-          tablaFactura.row
-            .add([id, cedula, nombre, apellido, telefono, direccion, correo])
-            .draw();
-        } else {
-          tablaFactura
-            .row(fila)
-            .data([id, cedula, nombre, apellido, telefono, direccion, correo])
-            .draw();
-        }
-      },
-    });
-    $("#modalCRUD").modal("hide");
-    location.reload();
-  });
 });
