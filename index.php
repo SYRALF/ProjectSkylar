@@ -5,13 +5,13 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Login con  PHP - Bootstrap 4</title>
+        <title>Gestion Status </title>
 
-        <link rel="stylesheet" href="../Assets/Js/bootstrap/css/bootstrap-reboot.min.css">
-        <link rel="stylesheet" href="../Assets/Css/Login.css">
-        <link rel="stylesheet" href="../plugins/sweetalert2/sweetalert2.min.css">        
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="Assets/Css/Login.css">
+        <link rel="stylesheet" href="plugins/sweetalert2/sweetalert2.min.css">        
         
-        <link rel="stylesheet" type="text/css" href="../fuentes/iconic/css/material-design-iconic-font.min.css">
+        <link rel="stylesheet" type="text/css" href="fuentes/iconic/css/material-design-iconic-font.min.css">
         
     </head>
     
@@ -43,11 +43,11 @@
     </div>     
         
         
-     <script src="../jquery/jquery-3.3.1.min.js"></script>    
-     <script src="../Assets/bootstrap/js/bootstrap.min.js"></script>    
-     <script src="../Assets/bootstrap//popper/popper.min.js"></script>    
+     <script src="jquery/jquery-3.3.1.min.js"></script>    
+     <script src="Assets/bootstrap/js/bootstrap.min.js"></script>    
+     <script src="Assets/bootstrap/popper/popper.min.js"></script>    
         
-     <script src="../plugins/sweetalert2/sweetalert2.all.min.js"></script>    
-     <script src="../Assets/Js/Login.js"></script>    
+     <script src="plugins/sweetalert2/sweetalert2.all.min.js"></script>    
+     <script src="index.js"></script>    
     </body>
 </html>

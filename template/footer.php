@@ -1,12 +1,11 @@
 
       </div>
       <!-- End of Main Content -->
-
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
+            <span>Copyright &copy; SJD </span>
           </div>
         </div>
       </footer>
@@ -36,7 +35,7 @@
         <div class="modal-body"></div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-          <a class="btn btn-primary" href="../bd/logout.php">Salir</a>
+          <a class="btn btn-primary" href="../Database/logout.php">Salir</a>
   
         </div>
       </div>
@@ -44,22 +43,22 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../Assets/vendor/jquery/jquery.min.js"></script>
+  <script src="../Assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="../Assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin-2.min.js"></script>
+  <script src="../Assets/Js/sb-admin-2.min.js"></script>
 
  
 
   
     <!-- datatables JS -->
-    <script type="text/javascript" src="vendor/datatables/datatables.min.js"></script>    
-    <!-- código propio JS --> 
-    <script type="text/javascript" src="main.js"></script>  
+    <script type="text/javascript" src="../Assets/vendor/datatables/datatables.min.js"></script>    
+    <!-- código propio JS  -->
+    <script type="text/javascript" src="../Assets/Js/contabilidad.js"></script>
     
 
     

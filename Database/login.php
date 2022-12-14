@@ -10,7 +10,7 @@ $usuario = (isset($_POST['usuario'])) ? $_POST['usuario'] : '';
 $password = (isset($_POST['password'])) ? $_POST['password'] : '';
 
 
-$consulta = "SELECT * FROM usuario WHERE usuario='$usuario' AND password='$pass' ";
+$consulta = "SELECT * FROM usuario WHERE usuario='$usuario' AND password='$password' ";
 $resultado = $conexion->prepare($consulta);
 $resultado->execute();
 
@@ -24,6 +24,3 @@ if($resultado->rowCount() >= 1){
 
 print json_encode($data);
 $conexion=null;
-
-//usuarios de pruebaen la base de datos
-//usuario:admin pass:administrador2022
