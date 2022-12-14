@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    tablaContabilidad = $("#tablaContabilidad").DataTable({
+    tablaCliente = $("#tablaCliente").DataTable({
        "columnDefs":[{
         "targets": -1,
         "data":null,
@@ -24,10 +24,10 @@ $(document).ready(function(){
     });
     
 $("#btnNuevo").click(function(){
-    $("#formContabilidad").trigger("reset");
+    $("#formCliente").trigger("reset");
     $(".modal-header").css("background-color", "#1cc88a");
     $(".modal-header").css("color", "white");
-    $("#exampleModalLabel").text("Nueva Contabilidad");            
+    $("#exampleModalLabel").text("Nuevo Cliente");            
     $("#modalCRUD").modal("show");        
     id=null;
     opcion = 1; //alta
@@ -39,24 +39,25 @@ var fila; //capturar la fila para editar o borrar el registro
 $(document).on("click", ".btnEditar", function(){
     fila = $(this).closest("tr");
     id = parseInt(fila.find('td:eq(0)').text());
-    fecha = fila.find('td:eq(1)').text();
-    servicio = fila.find('td:eq(2)').text();
-    detalle = fila.find('td:eq(3)').text();
-    tipo = fila.find('td:eq(4)').text();
-    precio = parseFloat(fila.find('td:eq(5)').text());
+    cedula = parseInt(fila.find('td:eq(1)').text());
+    nombre = fila.find('td:eq(2)').text();
+    apellido = fila.find('td:eq(3)').text();
+    telefono = parseInt(fila.find('td:eq(4)').text());
+    direccion = fila.find('td:eq(5)').text();
+    correo = fila.find('td:eq(6)').text();
     
-    $("#fecha").val(fecha);
-    $("#servicio").val(servicio);
-    $("#detalle").val(detalle);
-    $("#tipo").val(tipo);
-    $("#precio").val(precio);
+    $("#cedula").val(cedula);
+    $("#nombre").val(nombre);
+    $("#apellido").val(apellido);
+    $("#telefono").val(telefono);
+    $("#direccion").val(direccion);
+    $("#correo").val(correo);
     opcion = 2; //editar
     
     $(".modal-header").css("background-color", "#4e73df");
     $(".modal-header").css("color", "white");
-    $("#exampleModalLabel").text("Editar Contabilidad");            
-    $("#modalCRUD2").modal("show");  
-    
+    $("#exampleModalLabel").text("Editar Cliente");            
+    $("#modalCRUD").modal("show");  
 });
 
 //botón BORRAR
@@ -67,44 +68,46 @@ $(document).on("click", ".btnBorrar", function(){
     var respuesta = confirm("¿Está seguro de eliminar el registro: "+id+"?");
     if(respuesta){
         $.ajax({
-            url: "../Database/crudContabilidad.php",
+            url: "../Database/crudCliente.php",
             type: "POST",
             dataType: "json",
             data: {opcion:opcion, id:id},
             success: function(){
-                tablaContabilidad.row(fila.parents('tr')).remove().draw();
+                tablaCliente.row(fila.parents('tr')).remove().draw();
             }
         });
-    }   
+    }
+    location.reload();     
 });
     
-$("#formContabilidad").submit(function(e){
+$("#formCliente").submit(function(e){
     e.preventDefault();    
-    fecha = $.trim($("#fecha").val());
-    servicio = $.trim($("#servicio").val());
-    detalle = $.trim($("#detalle").val());
-    tipo = $.trim($("#tipo").val());
-    precio = $.trim($("#precio").val());
-    
+    cedula = $.trim($("#cedula").val());
+    nombre = $.trim($("#nombre").val());
+    apellido = $.trim($("#apellido").val());
+    telefono = $.trim($("#telefono").val());
+    direccion = $.trim($("#direccion").val());
+    correo = $.trim($("#correo").val());
     $.ajax({
-        url: "../Database/crudContabilidad.php",
+        url: "../Database/crudCliente.php",
         type: "POST",
         dataType: "json",
-        data: {fecha:fecha, servicio:servicio, detalle:detalle, tipo:tipo, precio:precio, id:id, opcion:opcion},
+        data: {cedula:cedula, nombre:nombre, apellido:apellido, telefono:telefono, direccion:direccion, correo:correo, id:id, opcion:opcion},
         success: function(data){  
             console.log(data);
             id = data[0].id;            
-            fecha = data[0].fecha;
-            servicio = data[0].servicio;
-            detalle = data[0].detalle;
-            tipo = data[0].tipo;
-            precio = data[0].precio;
-            if(opcion == 1){tablaContabilidad.row.add([id,fecha,servicio,detalle, tipo, precio]).draw();}
-            else{tablaContabilidad.row(fila).data([id,fecha,servicio,detalle, tipo, precio]).draw();}            
+            cedula = data[0].cedula;
+            nombre = data[0].nombre;
+            apellido = data[0].apellido;
+            telefono = data[0].telefono;
+            direccion = data[0].direccion;
+            correo = data[0].correo;
+            if(opcion == 1){tablaCliente.row.add([id, cedula, nombre, apellido, telefono, direccion, correo]).draw();}
+            else{tablaCliente.row(fila).data([id, cedula, nombre, apellido, telefono, direccion, correo]).draw();}            
         }        
     });
-    $("#modalCRUD").modal("hide");    
-    location.reload();
+    $("#modalCRUD").modal("hide");
+    location.reload();    
 });    
     
 });

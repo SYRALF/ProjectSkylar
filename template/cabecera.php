@@ -74,11 +74,11 @@ if ($_SESSION["s_usuario"] === null) {
           <i class="fas fa-fw fa-book"></i>
           <span>Contabilidad</span>
         </a>
-        <a class="nav-link collapsed" href="#">
+        <a class="nav-link collapsed" href="../Pages/clientes.php">
           <i class="fas fa-fw fa-user"></i>
           <span>Clientes</span>
         </a>
-        <a class="nav-link collapsed" href="#">
+        <a class="nav-link collapsed" href="../Pages/facturas.php">
           <i class="fas fa-file-invoice-dollar"></i>
           <span>Factura</span>
         </a>
