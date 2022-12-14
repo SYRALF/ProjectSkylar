@@ -35,7 +35,6 @@
                                 <th>cantidad</th>
                                 <th>descripcion</th>
                                 <th>Precio unitario</th>
-                                <th>Importe</th>
                                 <th>Total</th>
                                 <th>Acciones</th>
                             </tr>
@@ -52,7 +51,6 @@
                                     <td><?php echo $dat['cantidad'] ?></td>
                                     <td><?php echo $dat['descripcion'] ?></td>
                                     <td><?php echo $dat['precioUnitario'] ?></td>
-                                    <td><?php echo $dat['importe'] ?></td>
                                     <td><?php echo $dat['total'] ?></td>
                                     <td></td>
                                 </tr>
@@ -62,52 +60,6 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <!--Modal para CRUD-->
-    <div class="modal fade" id="modalCRUD" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <form id="formCliente">
-                    <div class="modal-body">
-                        <div class="wrap-input100">
-                            <input class="input100" type="text" id="cedula" name="cedula" placeholder="cedula">
-                            <span class="focus-efecto"></span>
-                        </div>
-                        <div class="wrap-input100">
-                            <input class="input100" type="text" id="nombre" name="nombre" placeholder="nombre">
-                            <span class="focus-efecto"></span>
-                        </div>
-                        <div class="wrap-input100">
-                            <input class="input100" type="text" id="apellido" name="apellido" placeholder="apellido">
-                            <span class="focus-efecto"></span>
-                        </div>
-                        <div class="wrap-input100">
-                            <input class="input100" type="text" id="telefono" name="telefono" placeholder="telefono/celular">
-                            <span class="focus-efecto"></span>
-                        </div>
-
-                        <div class="wrap-input100">
-                            <input class="input100" type="text" id="direccion" name="direccion" placeholder="direccion de residencia">
-                            <span class="focus-efecto"></span>
-                        </div>
-                        <div class="wrap-input100">
-                            <input class="input100" type="text" id="correo" name="correo" placeholder="Correo electronico">
-                            <span class="focus-efecto"></span>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" id="btnGuardar" class="btn btn-dark">Guardar</button>
-                    </div>
-                </form>
             </div>
         </div>
     </div>

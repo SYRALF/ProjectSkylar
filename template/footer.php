@@ -60,6 +60,7 @@
     <!-- código propio JS  -->
     <script type="text/javascript" src="../Assets/Js/contabilidad.js"></script>
     <script type="text/javascript" src="../Assets/Js/cliente.js"></script>
+    <script type="text/javascript" src="../Assets/Js/factura.js"></script>
     
     
 

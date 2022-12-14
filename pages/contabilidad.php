@@ -104,4 +104,5 @@
 
 </div>
 <!--FIN del cont principal-->
+
 <?php require_once "../Template/footer.php" ?>

@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  tablaCliente = $("#tablaCliente").DataTable({
+  tablaFactura = $("#tablaFactura").DataTable({
     columnDefs: [
       {
         targets: -1,
@@ -27,11 +27,7 @@ $(document).ready(function () {
   });
 
   $("#btnNuevo").click(function () {
-    $("#formCliente").trigger("reset");
-    $(".modal-header").css("background-color", "#1cc88a");
-    $(".modal-header").css("color", "white");
-    $("#exampleModalLabel").text("Nuevo Cliente");
-    $("#modalCRUD").modal("show");
+
     id = null;
     opcion = 1; //alta
   });
@@ -40,27 +36,7 @@ $(document).ready(function () {
 
   //botón EDITAR
   $(document).on("click", ".btnEditar", function () {
-    fila = $(this).closest("tr");
-    id = parseInt(fila.find("td:eq(0)").text());
-    cedula = parseInt(fila.find("td:eq(1)").text());
-    nombre = fila.find("td:eq(2)").text();
-    apellido = fila.find("td:eq(3)").text();
-    telefono = parseInt(fila.find("td:eq(4)").text());
-    direccion = fila.find("td:eq(5)").text();
-    correo = fila.find("td:eq(6)").text();
-
-    $("#cedula").val(cedula);
-    $("#nombre").val(nombre);
-    $("#apellido").val(apellido);
-    $("#telefono").val(telefono);
-    $("#direccion").val(direccion);
-    $("#correo").val(correo);
     opcion = 2; //editar
-
-    $(".modal-header").css("background-color", "#4e73df");
-    $(".modal-header").css("color", "white");
-    $("#exampleModalLabel").text("Editar Cliente");
-    $("#modalCRUD").modal("show");
   });
 
   //botón BORRAR
@@ -73,19 +49,19 @@ $(document).ready(function () {
     );
     if (respuesta) {
       $.ajax({
-        url: "../Database/crudCliente.php",
+        url: "../Database/crudFactura.php",
         type: "POST",
         dataType: "json",
         data: { opcion: opcion, id: id },
         success: function () {
-          tablaCliente.row(fila.parents("tr")).remove().draw();
+          tablaFactura.row(fila.parents("tr")).remove().draw();
         },
       });
     }
     location.reload();
   });
 
-  $("#formCliente").submit(function (e) {
+  $("#formFactura").submit(function (e) {
     e.preventDefault();
     cedula = $.trim($("#cedula").val());
     nombre = $.trim($("#nombre").val());
@@ -94,7 +70,7 @@ $(document).ready(function () {
     direccion = $.trim($("#direccion").val());
     correo = $.trim($("#correo").val());
     $.ajax({
-      url: "../Database/crudCliente.php",
+      url: "../Database/crudFactura.php",
       type: "POST",
       dataType: "json",
       data: {
@@ -117,11 +93,11 @@ $(document).ready(function () {
         direccion = data[0].direccion;
         correo = data[0].correo;
         if (opcion == 1) {
-          tablaCliente.row
+          tablaFactura.row
             .add([id, cedula, nombre, apellido, telefono, direccion, correo])
             .draw();
         } else {
-          tablaCliente
+          tablaFactura
             .row(fila)
             .data([id, cedula, nombre, apellido, telefono, direccion, correo])
             .draw();
