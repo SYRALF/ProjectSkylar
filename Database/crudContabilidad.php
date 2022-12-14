@@ -24,7 +24,7 @@ switch($opcion){
         $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
         break;
     case 2: //modificación
-        $consulta = "UPDATE contabilidad SET fecha='$fecha', servicio='$servicio', detalle='$detalle', tipo='$tipo', ='precio$precio' WHERE idContabilidad='$id' ";		
+        $consulta = "UPDATE contabilidad SET fecha='$fecha', servicio='$servicio', detalle='$detalle', tipo='$tipo', precio='$precio' WHERE idContabilidad='$id' ";		
         $resultado = $conexion->prepare($consulta);
         $resultado->execute();        
         
